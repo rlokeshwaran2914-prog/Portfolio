@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MyWork.css";
 
 function MyWork() {
-  const [activeIndex, setActiveIndex] = useState(null);
 
   const projects = [
     {
@@ -20,10 +19,6 @@ function MyWork() {
     },
   ];
 
-  const toggleDescription = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   return (
     <div id="projects" className="mywork">
       <div className="mywork-title">
@@ -36,33 +31,23 @@ function MyWork() {
             <h3>{project.title}</h3>
 
             <div className="project-buttons">
-              {/* Description (CLICK) */}
-              <div className="description-box">
-                <button
-                  type="button"
-                  className="desc-btn"
-                  onClick={() => toggleDescription(index)}
-                >
-                  📄 Description
-                </button>
 
-                <div
-                  className={`description-text ${
-                    activeIndex === index ? "show" : ""
-                  }`}
-                >
+              {/* Description (HOVER) */}
+              <div className="description-box">
+                <button className="desc-btn">📄 Description</button>
+                <div className="description-text">
                   {project.description}
                 </div>
               </div>
 
               {/* Tech Stack (HOVER) */}
               <div className="tech-stack">
-                <button type="button" className="tech-btn">
-                  ⚙ Tech Stack
-                </button>
-
-                <div className="stack-text">{project.stack}</div>
+                <button className="tech-btn">⚙ Tech Stack</button>
+                <div className="stack-text">
+                  {project.stack}
+                </div>
               </div>
+
             </div>
           </div>
         ))}
