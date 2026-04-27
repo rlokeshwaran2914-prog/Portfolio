@@ -127,42 +127,7 @@
   z-index: 10;
 }
 
-.tech-stack:hover .stack-text {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* ================= DESCRIPTION TOOLTIP ================= */
-.description-box {
-  width: 100%;
-}
-.description-text {
-  position: absolute;
-  top: 45px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-5px);
-
-  background: #111;
-  color: #fff;
-  padding: 10px 12px;
-  border-radius: 8px;
-
-  width: 260px;
-  font-size: 0.85rem;
-  line-height: 1.4;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: all 0.3s ease;
-
-  border: 1px solid rgba(0,255,204,0.4);
-
-  z-index: 10;
-}
-
-.description-box:hover .description-text {
+.tech-stack:hover .stack-text { 
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
