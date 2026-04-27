@@ -95,21 +95,26 @@
 }
 
 /* ================= TECH STACK TOOLTIP ================= */
-.stack-text {
+.stack-text,
+.description-text {
   position: absolute;
-  top: 45px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%) translateY(-5px);
 
   background: #111;
   color: #fff;
-  padding: 10px 12px;
+
+  padding: 12px 14px;
   border-radius: 10px;
 
   width: 260px;
   max-width: 90vw;
+
   font-size: 0.85rem;
   line-height: 1.5;
+  text-align: center;
+  word-wrap: break-word;
 
   opacity: 0;
   visibility: hidden;
