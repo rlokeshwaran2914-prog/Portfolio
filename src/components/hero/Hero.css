@@ -1,0 +1,137 @@
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 4rem 6rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
+}
+
+/* PROFILE IMAGE SIDE */
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Glow ring behind image */
+.hero-left::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.35), transparent 70%);
+  filter: blur(30px);
+  z-index: 0;
+}
+
+/* Profile image */
+.hero-left img {
+  width: 360px;
+  border-radius: 12%;
+  position: relative;
+  z-index: 1;
+
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.4),
+    0 0 80px rgba(0, 123, 255, 0.25);
+
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover tilt + glow boost */
+.hero-left img:hover {
+  transform: translateY(-10px) scale(1.03) rotate(-1deg);
+  box-shadow:
+    0 0 40px rgba(0, 255, 255, 0.6),
+    0 0 120px rgba(0, 123, 255, 0.4);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* TEXT SIDE */
+.hero-right {
+  flex: 1;
+}
+
+.hero-right h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #00FFFF, #007BFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-right p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* ACTION BUTTONS */
+.hero-action {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.hero-connect,
+.hero-resume {
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.hero-connect {
+  background: linear-gradient(135deg, #00FFFF, #007BFF);
+}
+
+.hero-resume {
+  border: 2px solid #fff;
+}
+
+.hero-resume:hover {
+  border-color: #00FFFF;
+}
+
+.hero-connect:hover {
+  border: 2px solid white;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 90px;
+  }
+
+  .hero-left::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-left img {
+    width: 260px;
+  }
+
+  .hero-action {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,142 @@
+  /* Skills Section */
+.skills-wrapper {
+  width: 100%;
+}
+
+/* Container */
+.skills-container {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* Title */
+.skills-title {
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #00ffcc;
+  font-weight: bold;
+  text-shadow: 0 0 12px rgba(0, 255, 204, 0.7);
+}
+
+/* Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Wrapper */
+.skill-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Card */
+.skill-card {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.skill-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 255, 204, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Logo */
+.skill-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.6rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-logo {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* Name */
+.skill-name {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Floating text */
+.skill-message {
+  max-width: 260px;
+  text-align: left;
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.skill-message h2 {
+  color: #00ffcc;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+/* ================= MOBILE PHONES ================= */
+@media (max-width: 600px) {
+
+  .skills-container {
+    padding: 2rem 1rem;
+  }
+
+  .skills-title {
+    font-size: 1.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .skill-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .skill-card {
+    width: 95px;
+    height: 95px;
+  }
+
+  .skill-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+
+  /* ✅ SHOW MESSAGE PROPERLY */
+  .skill-message {
+    display: block;
+    opacity: 1;              /* remove hidden effect */
+    text-align: center;
+    max-width: 90%;
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+
+  .skill-message h2 {
+    font-size: 0.95rem;
+  }
+}
