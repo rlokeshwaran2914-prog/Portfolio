@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MyWork.css";
 
 function MyWork() {
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const projects = [
     {
-      title: "Full-stack web application ",
-      description: "Built a full-stack web application with JWT-based authentication and secure password hashing. Developed REST APIs using Flask for user authentication, dashboard access, and notes CRUD operation. Designed a dashboard interface with categorized sections for Frontend, Backend, and Database topics. Implemented features for creating, saving, edit, renaming, and deleting notes with MongoDB data persistence. Integrated React frontend with Flask backend APIs for seamless client-server communication",
-      stack: "React.js, JavaScript, HTML, CSS, Python, Flask, JWT Authentication, MongoDB Atlas, REST APIs"
+      title: "Full-stack web application",
+      description:
+        "Built a full-stack web application with JWT-based authentication and secure password hashing. Developed REST APIs using Flask for user authentication, dashboard access, and notes CRUD operations. Designed a dashboard interface with categorized sections. Implemented features like creating, editing, renaming, and deleting notes with MongoDB persistence. Integrated React frontend with Flask backend APIs.",
+      stack:
+        "React.js, JavaScript, HTML, CSS, Python, Flask, JWT, MongoDB Atlas, REST APIs",
     },
     {
       title: "Email Tool",
-      description: "Built a web-based email sending system using Python Flask and Gmail SMTP. Developed a frontend form using HTML, CSS, and JavaScript to compose emails. Implemented backend APIs with Flask-Mail to send emails programmatically",
-      stack: "HTML, CSS, JavaScript, Python, Flask, Flask-Mail, SMTP"
+      description:
+        "Built a web-based email system using Python Flask and Gmail SMTP. Developed a frontend form to compose emails and implemented backend APIs using Flask-Mail to send emails programmatically.",
+      stack: "HTML, CSS, JavaScript, Python, Flask, Flask-Mail, SMTP",
     },
   ];
+
+  const toggleDescription = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   return (
     <div id="projects" className="mywork">
@@ -28,16 +36,34 @@ function MyWork() {
             <h3>{project.title}</h3>
 
             <div className="project-buttons">
-               <div className="description-box">
-                <button className="desc-btn">Description</button>
-                <span className="description-text">{project.description}</span>
-              </div>
-              <div className="tech-stack">
-                <button className="tech-btn">Tech Stack</button>
-                <span className="stack-text">{project.stack}</span>
-              </div>
+              {/* Description (CLICK) */}
+              <div className="description-box">
+                <button
+                  type="button"
+                  className="desc-btn"
+                  onClick={() => toggleDescription(index)}
+                >
+                  📄 Description
+                </button>
+
+                <span
+                  className={`description-text ${
+                    activeIndex === index ? "show" : ""
+                  }`}
+                >
+                  {project.description}
+                </span>
               </div>
 
+              {/* Tech Stack (HOVER) */}
+              <div className="tech-stack">
+                <button type="button" className="tech-btn">
+                  ⚙ Tech Stack
+                </button>
+
+                <span className="stack-text">{project.stack}</span>
+              </div>
+            </div>
           </div>
         ))}
       </div>
