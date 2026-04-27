@@ -85,10 +85,13 @@
   padding: 10px 40px;
   border-radius: 50px;
   background:linear-gradient(135deg, #00FFFF, #007BFF);
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid #00FFFF;
+  outline: none;
+  color: white;
+  font-weight: 600;
 }
 
 .nav-connect:hover {
