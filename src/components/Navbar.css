@@ -132,31 +132,32 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ================= MOBILE (FIXED STABLE UI) ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
   .navbar {
-    padding: 0 16px;
-    height: 70px;
+    padding: 0 20px;
+    height: 80px;
   }
 
   .nav-logo {
-    width: 140px;
+    width: 150px;
   }
 
-  /* hamburger always right aligned */
+  /* hamburger */
   .hamburger {
     display: flex;
-    z-index: 1100;
+    z-index: 2000;
   }
 
-  /* FULL SCREEN MENU (NO SHIFTING) */
+  /* ================= MENU FIX ================= */
   .nav-menu {
     position: fixed;
-    top: 70px;
-    left: 0;
+    top: 0;
+    right: 0;
+
     width: 100%;
-    height: calc(100vh - 70px);
+    height: 100vh;
 
     background: rgba(10, 31, 68, 0.98);
     backdrop-filter: blur(12px);
@@ -166,32 +167,36 @@ html {
     justify-content: center;
     align-items: center;
 
-    gap: 28px;
-    padding: 0;
+    gap: 35px;
 
     transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.35s ease-in-out;
+
+    z-index: 1500;
   }
 
-  /* OPEN STATE */
+  /* OPEN MENU */
   .nav-menu.open {
     transform: translateX(0);
   }
 
-  .nav-menu li {
-    width: 100%;
-    text-align: center;
-  }
-
   .nav-menu li a {
-    font-size: 20px;
-    display: inline-block;
-    padding: 10px 0;
+    font-size: 22px;
   }
 
-  /* CONNECT BUTTON FIX */
   .nav-connect {
-    font-size: 16px;
     padding: 10px 25px;
+    font-size: 16px;
+  }
+
+  /* BACKDROP */
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 1400;
   }
 }

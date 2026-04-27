@@ -3,13 +3,12 @@ import './Navbar.css';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
-
   const [active, setActive] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleClick = (sectionId) => {
     setActive(sectionId);
-    setMenuOpen(false); // close menu on click
+    setMenuOpen(false);
 
     const section = document.getElementById(sectionId);
     if (section) {
@@ -17,7 +16,6 @@ const Navbar = () => {
     }
   };
 
-  // Scroll shrink
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector('.navbar');
@@ -33,54 +31,35 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="navbar">
-      <img src={logo} alt="Logo" className="nav-logo" />
+    <>
+      <div className="navbar">
+        <img src={logo} alt="Logo" className="nav-logo" />
 
-      {/* Hamburger */}
-      <div 
-        className={`hamburger ${menuOpen ? 'active' : ''}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+        <div
+          className={`hamburger ${menuOpen ? 'active' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
+          <li><a onClick={() => handleClick('about')}>About</a></li>
+          <li><a onClick={() => handleClick('skills')}>Skills</a></li>
+          <li><a onClick={() => handleClick('projects')}>Projects</a></li>
+          <li><a onClick={() => handleClick('contact')}>Connect with me</a></li>
+        </ul>
       </div>
 
-      {/* Menu */}
-      <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
-        <li>
-          <a href="#about"
-            className={active === 'about' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleClick('about'); }}>
-            About
-          </a>
-        </li>
-
-        <li>
-          <a href="#skills"
-            className={active === 'skills' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleClick('skills'); }}>
-            Skills
-          </a>
-        </li>
-
-        <li>
-          <a href="#projects"
-            className={active === 'projects' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleClick('projects'); }}>
-            Projects
-          </a>
-        </li>
-
-        <li>
-          <a href="#contact"
-            className={active === 'contact' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); handleClick('contact'); }}>
-            Connect with me
-          </a>
-        </li>
-      </ul>
-    </div>
+      {/* BACKDROP (click to close menu) */}
+      {menuOpen && (
+        <div
+          className="backdrop"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+    </>
   );
 };
 
