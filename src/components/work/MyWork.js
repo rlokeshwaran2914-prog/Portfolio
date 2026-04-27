@@ -2,7 +2,6 @@ import React from "react";
 import "./MyWork.css";
 
 function MyWork() {
-
   const projects = [
     {
       title: "Full-stack web application",
@@ -32,7 +31,7 @@ function MyWork() {
 
             <div className="project-buttons">
 
-              {/* Description (HOVER) */}
+              {/* DESCRIPTION */}
               <div className="description-box">
                 <button className="desc-btn">📄 Description</button>
                 <div className="description-text">
@@ -40,7 +39,7 @@ function MyWork() {
                 </div>
               </div>
 
-              {/* Tech Stack (HOVER) */}
+              {/* TECH STACK */}
               <div className="tech-stack">
                 <button className="tech-btn">⚙ Tech Stack</button>
                 <div className="stack-text">

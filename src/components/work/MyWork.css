@@ -70,6 +70,8 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .tech-btn:hover,
@@ -115,19 +117,17 @@
   box-shadow: 0 10px 25px rgba(0,255,204,0.25);
 
   z-index: 1000;
-
-  pointer-events: none; /* 🔥 prevents flicker */
+  pointer-events: none;
 }
 
-/* ================= TECH STACK (HOVER) ================= */
-.tech-stack:hover .stack-text {
+/* ================= SHOW ON BUTTON HOVER ================= */
+.desc-btn:hover + .description-text {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
-/* ================= DESCRIPTION (HOVER) ================= */
-.description-box:hover .description-text {
+.tech-btn:hover + .stack-text {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
