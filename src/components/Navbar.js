@@ -16,11 +16,28 @@ const Navbar = () => {
       <img src={logo} alt="Portfolio Logo" className="nav-logo" />
 
       <ul className="nav-menu">
-        <li><a onClick={() => handleClick('about')}>About</a></li>
-        <li><a onClick={() => handleClick('skills')}>Skills</a></li>
-        <li><a onClick={() => handleClick('projects')}>Projects</a></li>
-        <li className='nav-connect' onClick={() => handleClick('contact')}>
-          Connect with me
+        <li>
+          <a href="#about" onClick={(e) => { e.preventDefault(); handleClick('about'); }}>
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="#skills" onClick={(e) => { e.preventDefault(); handleClick('skills'); }}>
+            Skills
+          </a>
+        </li>
+
+        <li>
+          <a href="#projects" onClick={(e) => { e.preventDefault(); handleClick('projects'); }}>
+            Projects
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); handleClick('contact'); }}>
+            Connect with me
+          </a>
         </li>
       </ul>
     </div>
