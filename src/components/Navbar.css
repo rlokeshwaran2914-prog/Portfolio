@@ -150,7 +150,9 @@ html {
     z-index: 2000;
   }
 
-  /* ================= MENU FIX ================= */
+  /* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
   .nav-menu {
     position: fixed;
     top: 0;
@@ -175,28 +177,22 @@ html {
     z-index: 1500;
   }
 
-  /* OPEN MENU */
   .nav-menu.open {
     transform: translateX(0);
   }
 
+  /* 🔥 IMPORTANT: hide normal inline menu behavior */
+  .nav-menu li {
+    display: block;
+  }
+
   .nav-menu li a {
     font-size: 22px;
+    display: block;
   }
 
-  .nav-connect {
-    padding: 10px 25px;
-    font-size: 16px;
-  }
-
-  /* BACKDROP */
-  .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0,0,0,0.4);
-    z-index: 1400;
+  /* remove any side layout issues */
+  .navbar {
+    overflow: hidden;
   }
 }
