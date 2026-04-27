@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 
 const Navbar = () => {
 
-  const [active, setActive] = useState('about');
+  const [active, setActive] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleClick = (sectionId) => {
