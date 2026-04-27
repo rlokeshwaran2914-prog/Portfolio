@@ -5,16 +5,25 @@
   justify-content: space-between;
   padding: 0 40px;
   height: 100px;
-  top: 0;
   position: sticky;
+  top: 0;
   z-index: 1000;
-  background: #0A1F44;
+
+  /* upgraded look */
+  background: rgba(10, 31, 68, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+/* shrink on scroll */
+.navbar.scrolled {
+  height: 70px;
 }
 
 /* ================= LOGO ================= */
 .nav-logo {
-  width: 300px;
-  height: 110px;
+  width: 220px;
+  height: auto; /* FIXED */
 }
 
 /* ================= NAV MENU ================= */
@@ -26,14 +35,15 @@
   font-size: 20px;
 }
 
-/* Each link container */
+/* Each link */
 .nav-menu li {
   position: relative;
   cursor: pointer;
 }
 
-/* Links styling */
+/* Links */
 .nav-menu li a {
+  position: relative; /* IMPORTANT FIX */
   text-decoration: none;
   color: white;
   font-weight: 500;
@@ -47,7 +57,7 @@
   font-weight: 600;
 }
 
-/* Hover underline animation */
+/* Hover underline */
 .nav-menu li a::after {
   content: '';
   position: absolute;
@@ -63,11 +73,11 @@
   width: 100%;
 }
 
-/* Hover text effect */
+/* Hover effect */
 .nav-menu li a:hover {
   color: #00FFFF;
-  text-shadow: 0 0 15px white;
-  transform: scale(1.08);
+  text-shadow: 0 0 10px white;
+  transform: scale(1.05);
 }
 
 /* ================= CONNECT BUTTON ================= */
@@ -88,33 +98,79 @@
   border: 2px solid #fff;
 }
 
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+
+/* hamburger animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* ================= MOBILE VERSION ================= */
-/* ================= MOBILE RESPONSIVE ================= */
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
   .navbar {
-    padding: 0 20px;     /* smaller side spacing */
-    height: 80px;        /* slightly smaller height */
+    padding: 0 20px;
+    height: 80px;
   }
 
   .nav-logo {
-    width: 180px;        /* reduced but proportional */
-    height: auto;
+    width: 150px;
   }
 
+  /* show hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* mobile menu */
   .nav-menu {
-    gap: 25px;           /* reduce spacing */
-    font-size: 15px;     /* slightly smaller text */
+    position: absolute;
+    top: 80px;
+    right: -100%;
+    flex-direction: column;
+    width: 100%;
+    background: #0A1F44;
+    text-align: center;
+    gap: 30px;
+    padding: 30px 0;
+    transition: 0.3s ease;
+  }
+
+  /* when open */
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .nav-menu li a {
+    font-size: 18px;
   }
 
   .nav-connect {
-    padding: 6px 18px;
+    padding: 8px 20px;
     font-size: 14px;
   }
 }
