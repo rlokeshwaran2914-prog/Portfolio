@@ -18,7 +18,7 @@
 /* ================= PROJECT GRID ================= */
 .projects-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
@@ -32,6 +32,7 @@
   padding: 1.5rem;
   border: 1px solid rgba(0, 255, 204, 0.2);
   transition: all 0.3s ease;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +49,7 @@
 .project-card h3 {
   font-size: 1.3rem;
   color: #ffffff;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 /* ================= BUTTON AREA ================= */
@@ -70,8 +71,6 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
-  z-index: 2;
 }
 
 .tech-btn:hover,
@@ -87,11 +86,11 @@
   position: relative;
 }
 
-/* ================= TOOLTIP COMMON ================= */
+/* ================= TOOLTIP ================= */
 .stack-text,
 .description-text {
   position: absolute;
-  top: 60px;
+  top: 55px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -120,30 +119,66 @@
   pointer-events: none;
 }
 
-/* ================= SHOW ON BUTTON HOVER ================= */
-.desc-btn:hover + .description-text {
+/* ================= HOVER (DESKTOP) ================= */
+.tech-stack:hover .stack-text,
+.description-box:hover .description-text {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
-.tech-btn:hover + .stack-text {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 480px) {
   .mywork {
-    padding: 0 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .mywork-title h1 {
+    font-size: 1.9rem;
+    margin-bottom: 2rem;
   }
 
   .projects-container {
     grid-template-columns: 1fr;
+    max-width: 350px;
+    gap: 1.2rem;
   }
 
   .project-card {
-    padding: 1.1rem;
+    padding: 1.4rem 1rem;
+    border-radius: 16px;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .tech-btn,
+  .desc-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .stack-text,
+  .description-text {
+    width: 220px;
+    font-size: 0.8rem;
+    top: 55px;
+  }
+
+  /* 🔥 Mobile tap support */
+  .tech-stack:active .stack-text,
+  .description-box:active .description-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
   }
 }
