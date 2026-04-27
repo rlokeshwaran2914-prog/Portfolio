@@ -104,11 +104,12 @@
   background: #111;
   color: #fff;
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: 10px;
 
-  width: 240px;
+  width: 260px;
+  max-width: 90vw;
   font-size: 0.85rem;
-  line-height: 1.4;
+  line-height: 1.5;
 
   opacity: 0;
   visibility: hidden;
