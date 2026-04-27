@@ -46,13 +46,13 @@ function MyWork() {
                   📄 Description
                 </button>
 
-                <span
+                <div
                   className={`description-text ${
                     activeIndex === index ? "show" : ""
                   }`}
                 >
                   {project.description}
-                </span>
+                </div>
               </div>
 
               {/* Tech Stack (HOVER) */}
@@ -61,7 +61,7 @@ function MyWork() {
                   ⚙ Tech Stack
                 </button>
 
-                <span className="stack-text">{project.stack}</span>
+                <div className="stack-text">{project.stack}</div>
               </div>
             </div>
           </div>

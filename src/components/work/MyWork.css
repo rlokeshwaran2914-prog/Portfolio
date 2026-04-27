@@ -57,7 +57,6 @@
   display: flex;
   gap: 1rem;
   position: relative;
-  z-index: 5;
 }
 
 /* ================= BUTTON STYLE ================= */
@@ -81,19 +80,19 @@
   transform: scale(1.05);
 }
 
-/* ================= TOOLTIP CONTAINER ================= */
+/* ================= CONTAINERS ================= */
 .tech-stack,
 .description-box {
   position: relative;
 }
 
-/* ================= COMMON TOOLTIP STYLE ================= */
+/* ================= POPUP COMMON ================= */
 .stack-text,
 .description-text {
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 50%;
-  transform: translateX(-50%) translateY(-5px);
+  transform: translateX(-50%);
 
   background: #111;
   color: #fff;
@@ -107,7 +106,6 @@
   font-size: 0.85rem;
   line-height: 1.5;
   text-align: center;
-  word-wrap: break-word;
 
   opacity: 0;
   visibility: hidden;
@@ -117,17 +115,17 @@
   border: 1px solid rgba(0,255,204,0.4);
   box-shadow: 0 10px 25px rgba(0,255,204,0.25);
 
-  z-index: 10;
+  z-index: 1000;
 }
 
-/* ================= SHOW ON HOVER ================= */
+/* ================= TECH STACK (HOVER) ================= */
 .tech-stack:hover .stack-text {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
-/* ================= SHOW ON CLICK ================= */
+/* ================= DESCRIPTION (CLICK) ================= */
 .description-text.show {
   opacity: 1;
   visibility: visible;
@@ -142,11 +140,9 @@
 
   .projects-container {
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .project-card {
     padding: 1.1rem;
-    border-radius: 14px;
   }
 }
